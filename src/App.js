@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 
 import Courses from './containers/Courses/Courses';
 import Users from './containers/Users/Users';
@@ -18,6 +18,12 @@ class App extends Component {
           <li>Add a 404 error page and render it for any unknown routes</li>
           <li>Redirect requests to /all-courses to /courses (=> Your "Courses" page)</li>
         </ol>
+        <nav>
+          <ul style={{ listStyle: 'none', margin: '0', padding: '0' }}>
+            <li style={{ padding: '10px', display: 'inline-block' }}><Link to="/courses">Courses</Link></li>
+            <li style={{ padding: '10px', display: 'inline-block' }}><Link to="/users">Users</Link></li>
+          </ul>
+        </nav>
         <Route path="/courses" component={Courses} />
         <Route path="/users" component={Users} />
       </div>
