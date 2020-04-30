@@ -5,14 +5,25 @@ class Course extends Component {
         courseTitle: ''
     }
     componentDidMount() {
+        this.parseQueryParams();
+    }
+
+    componentDidUpdate() {
+        this.parseQueryParams();
+    }
+
+    parseQueryParams() {
         console.log(this.props);
         const query = new URLSearchParams(this.props.location.search);
         //console.log(query);
         //Gettting the param index 1 does means the title
         for (let param of query.entries()) {
-            this.setState({ courseTitle: param[1] });
-        };
+            if (this.state.courseTitle !== param[1]) {
+                this.setState({ courseTitle: param[1] });
+            }
+        }
     }
+
     render() {
         return (
             <div>
