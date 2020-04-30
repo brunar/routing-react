@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
+import { Route } from 'react-router-dom';
 
 import Courses from './containers/Courses/Courses';
 import Users from './containers/Users/Users';
 
 class App extends Component {
-  render () {
+  render() {
     return (
       <div className="App">
-        <ol style={{textAlign: 'left'}}>
+        <ol style={{ textAlign: 'left' }}>
           <li>Add Routes to load "Users" and "Courses" on different pages (by entering a URL, without Links)</li>
           <li>Add a simple navigation with two links => One leading to "Users", one leading to "Courses"</li>
           <li>Make the courses in "Courses" clickable by adding a link and load the "Course" component in the place of "Courses" (without passing any data for now)</li>
@@ -17,6 +18,8 @@ class App extends Component {
           <li>Add a 404 error page and render it for any unknown routes</li>
           <li>Redirect requests to /all-courses to /courses (=> Your "Courses" page)</li>
         </ol>
+        <Route path="/courses" component={Courses} />
+        <Route path="/users" component={Users} />
       </div>
     );
   }
